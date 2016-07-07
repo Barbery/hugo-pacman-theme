@@ -4,13 +4,17 @@
     {{ partial "header.html" . }}
   </header>
   <div id="container">
-    <div id="main">
-      {{ range .Data.Pages.GroupByDate "2006-01" }}
-      <h2 id="{{ .Key }}">{{ .Key }}</h2>
+    <div id="main" class="moveMain">
+      {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+
+      {{ range $paginator.Pages.GroupByDate "2006年01月" }}
+      <h2 class="list-date" id="{{ .Key }}">{{ .Key }}</h2>
       {{ range .Pages }}
-      {{ partial "article.html" . }}
-      {{ end }}
-      {{ end }}
+        {{ partial "article.html" . }}
+      {{end}}
+      {{end}}
+
+      <div>{{ partial "pagination.html" . }}</div>
     </div>
     {{ partial "sidebar.html" . }}
   </div>

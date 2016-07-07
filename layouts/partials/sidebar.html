@@ -1,5 +1,5 @@
-<div class="openaside"><a class="navbutton" href="#" title="{{ .Site.Params.Strings.ShowSideBar }}"></a></div>
-<div id="asidepart">
+<div class="openaside fadeIn" style="display: block;"><a class="navbutton" href="#" title="{{ .Site.Params.Strings.ShowSideBar }}"></a></div>
+<div id="asidepart" class="fadeOut" style="display: none;">
 <div class="closeaside"><a class="closebutton" href="#" title="{{ .Site.Params.Strings.HideSideBar }}"></a></div>
 <aside class="clearfix">
   {{ partial "widgets/categories" . }}

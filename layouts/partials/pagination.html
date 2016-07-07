@@ -1,0 +1,12 @@
+<div class="pagination pagination-right" style="float: right;">
+  <ul>
+        {{ if .Paginator.HasPrev }}
+            <li><a href="{{ .Paginator.Prev.URL }}">Prev</a></li>
+        {{ end }}
+        <li class="active"><a href="{{ .Paginator.URL }}">{{ .Paginator.PageNumber }}</a></li>
+
+        {{ if .Paginator.HasNext }}
+            <li><a href="{{ .Paginator.Next.URL }}">Next</a></li>
+        {{ end }}
+  </ul>
+</div>

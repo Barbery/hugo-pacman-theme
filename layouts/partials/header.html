@@ -9,6 +9,23 @@
     <h2 class="blog-motto">{{ with .Site.Params.Subtitle }}{{ . }}{{ end }}</h2>
   </div>
   <div class="navbar"><a class="navbutton navmobile" href="#" title="menu"></a></div>
+  <div class="social-font clearfix">
+  {{ with .Site.Params.Weibo }}
+  <a href="http://weibo.com/{{ . }}" target="_blank" title="weibo"></a>
+  {{ end }}
+  {{ with .Site.Params.Twitter }}
+  <a href="https://twitter.com/{{ . }}" target="_blank" title="twitter"></a>
+  {{ end }}
+  {{ with .Site.Params.GitHub }}
+  <a href="https://github.com/{{ . }}" target="_blank" title="github"></a>
+  {{ end }}
+  {{ with .Site.Params.Facebook }}
+  <a href="https://www.facebook.com/{{ . }}" target="_blank" title="facebook"></a>
+  {{ end }}
+  {{ with .Site.Params.LinkIn }}
+  <a href="https://www.linkedin.com/{{ . }}" target="_blank" title="linkedin"></a>
+  {{ end }}
+</div>
   <nav class="animated">
     <ul>
       {{ range .Site.Menus.Main }}
