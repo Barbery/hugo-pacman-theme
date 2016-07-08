@@ -5,14 +5,18 @@
   </header>
   <div id="container">
     <div id="main" class="moveMain">
-      {{ $paginator := .Paginate (after 10 (where .Data.Pages "Type" "post")) }}
+      {{ $pages := where .Data.Pages "Type" "post" }}
+      {{ if ge (len $pages) 10 }}
+        {{ $paginator := .Paginate $pages }}
+
 
       {{ range $paginator.Pages.GroupByDate "2006年01月" }}
-      <h2 class="list-date" id="{{ .Key }}">{{ .Key }}</h2>
-      {{ range .Pages }}
-        {{ partial "article.html" . }}
+        <h2 class="list-date" id="{{ .Key }}">{{ .Key }}</h2>
+        {{ range .Pages }}
+          {{ partial "article.html" . }}
+        {{end}}
       {{end}}
-      {{end}}
+      {{ end }}
 
       <div>{{ partial "pagination.html" . }}</div>
     </div>
